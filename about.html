@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Title -->
+    <title>Onur Ozkan's Page</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="static/CSS/nav.css" />
+    <link rel="stylesheet" href="static/CSS/about.css" />
+  </head>
+  <body>
+
+    <!-- === HEADER (same structure as index) === -->
+    <div id="header">
+      <div id="headerpic"></div>
+
+      <div class="headercontbackg">
+        <div class="headercontent">
+
+          <!-- Burger -->
+          <div class="burgericon"></div>
+
+          <!-- Dropdown menu -->
+          <div class="burgermenu">
+            <div class="linksbox">
+              <nav id="links">
+                <div id="menu-all-content">
+                  <!-- search bar -->
+                  <div id="searchbar">
+                    <div id="searchtool" onclick="toggleSearchBar()">
+                      <img src="static/search.svg" alt="Search" />
+                    </div>
+                    <form>
+                      <input id="bar" type="text" name="search" placeholder="Search" list="search-results" />
+                      <datalist id="search-results">
+                        <option value="Home"></option>
+                        <option value="About"></option>
+                        <option value="Projects"></option>
+                        <option value="Links"></option>
+                      </datalist>
+                    </form>
+                  </div>
+
+                  <!-- nav links -->
+                  <!-- navigation links (relative, not /absolute) -->
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="index.html"
+                  >Home</a>
+
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="about.html"
+                  >About</a>
+
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="projects.html"
+                  >Projects</a>
+
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="links.html"
+                  >Links</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Logo -->
+          <div class="logo">
+            <img src="static/logo.png" alt="Site logo" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="content">
+      <div class="filtered-background">
+        <!-- Hero -->
+        <section class="sections">
+          <div class="section-1-content">
+            <h1>ABOUT ME</h1>
+            <div class="btns">
+              <button class="next" aria-label="Scroll down">
+                <img id="downarrow" src="static/downarrow.png" alt="" />
+              </button>
+              <button class="prev" aria-hidden="true">top</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Intro (image + two paragraphs) -->
+        <section class="sections">
+          <div class="section-2-content about-grid">
+            <img id="profpicture" src="static/profphoto.jpg" alt="Profile photo of Onur Ozkan" />
+
+            <div class="intro">
+              <p class="lead" id="intro-1">
+                Hi! I'm Onur, a software developer and AI enthusiast from Istanbul, Türkiye. I hold an 
+                Honours Bachelor of Science in Computer Science from the University of Toronto, where I 
+                specialized in Machine Learning and Data Mining. After living and working in 
+                Toronto, Ontario, Canada for 7.5 years, I have recently returned home and am now based in Istanbul.
+              </p>
+
+              <p id="intro-2">
+                Over the course of my career, I have contributed to a range of impactful projects that 
+                strengthened both my technical and collaborative abilities. As a Co-op Junior Software Developer 
+                with the Government of Ontario’s Children, Youth, and Social Services I&IT Cluster, 
+                I gained hands-on experience in software development and automation. More recently, 
+                as a Data Analyst at TELUS International AI Data Solutions, I focused on improving AI data accuracy, 
+                further sharpening my analytical and problem-solving skills. Today, I continue building 
+                projects like <strong>Timeline Raider</strong> (Unity, C#) and <strong>Mani!</strong> (2D Match-3).
+                I love combining creativity with technology — from ML and data analysis to game development
+                and interactive design. See more on the Projects page.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Details block -->
+        <section class="sections">
+          <div class="section-3-content details">
+            <h2>Education</h2>
+            <p><strong>University of Toronto, Scarborough</strong> Class of 2023<br />
+               Honours Bachelor of Science in Computer Science — Specialization in Machine Learning &amp; Data Mining
+            </p>
+
+            <h2>Key Competencies</h2>
+            <div class="two-col">
+              <ul>
+                <li><strong>Programming:</strong> Python, Java, C#, C, R, SQLite, JavaScript, HTML, CSS</li>
+                <li><strong>Libraries:</strong> PyTorch, TensorFlow, scikit-learn, NumPy, Pandas, Matplotlib</li>
+              </ul>
+              <ul>
+                <li><strong>Development:</strong> Git, GitHub, GitLab, Agile, Scrum, JENKINS</li>
+                <li><strong>Game Engines:</strong> Unity</li>
+              </ul>
+            </div>
+
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+              <div class="item">
+                <h3>TELUS International AI Data Solutions</h3>
+                <span class="meta">Online Data Analyst · 2023 – 2024</span>
+                <p>Analyzed and evaluated AI training/test data to improve accuracy and user-intent alignment.</p>
+              </div>
+              <div class="item">
+                <h3>Government of Ontario Children, Youth, and Social Services I&IT Cluster</h3>
+                <span class="meta">Co-op Software Developer · 2022</span>
+                <p>Built automation with Java, Selenium, Cucumber, Allure, JUnit, GitHub, GitLab, JENKINS, JSON; optimized portals; created QA reporting.</p>
+              </div>
+              <div class="item">
+                <h3>Barış Yedek Parça</h3>
+                <span class="meta">Customer Service · 2020 – 2021</span>
+                <p>Managed inventory and client relations in English and French remotely from Toronto.</p>
+              </div>
+            </div>
+
+            <h2>Goals</h2>
+            <h3>Short-Term Goals</h3>
+            <ul class="goals">
+              <li><strong>Skill Refinement:</strong> Expand proficiency in modern frameworks, tools, and programming languages to maintain a versatile and future-ready skill set.</li>
+              <li><strong>Project Impact:</strong> Deliver meaningful contributions to projects by applying problem-solving skills, innovation, and disciplined execution. Actively seek mentorship to refine strategies and ensure high-quality outcomes.</li>
+              <li><strong>Collaboration & Growth:</strong> Learn from colleagues’ perspectives, foster teamwork, and support a culture of continuous improvement.</li>
+              <li><strong>Performance Recognition:</strong> Build a track record of reliable, high-impact work. Welcome feedback to identify areas of growth and continuously refine performance.</li>
+            </ul>
+
+            <h3>Long-Term Goal</h3>
+            <ul class="goals">
+              <li>Lead innovative projects and work with talented and passionate developers while contributing research-driven solutions.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- === FOOTER SECTION (static) === -->
+    <div id="footer">
+      <div id="footercontent">
+        <div class="logo">
+          <img src="static/logotext.png" alt="Site logo text" />
+        </div>
+        <div id="contactinfo">
+          <p>Contact Info:</p>
+          <a href="mailto:onurozkanapp@gmail.com">onurozkanapp@gmail.com</a>
+        </div>
+        <div id="social-media-sec">
+          <a href="https://www.linkedin.com/in/onur-ozkan-286812149/" target="_blank" rel="noopener noreferrer">
+            <img class="social-media-icons" src="static/linkedin.png" alt="LinkedIn" />
+          </a>
+          <a href="https://www.github.com/OnurOzkanApp" target="_blank" rel="noopener noreferrer">
+            <img id="github" class="social-media-icons" src="static/github.png" alt="GitHub" />
+          </a>
+          <a href="https://twitter.com/OnurOzkan98" target="_blank" rel="noopener noreferrer">
+            <img id="xlogo" class="social-media-icons" src="static/XAllBlack.png" alt="X" />
+          </a>
+          <a href="https://www.instagram.com/onurozkan98/" target="_blank" rel="noopener noreferrer">
+            <img id="instagram" class="social-media-icons" src="static/instagram-icon.png" alt="Instagram" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="static/JS/nav.js"></script>
+    <script src="static/JS/about.js"></script>
+  </body>
+</html>

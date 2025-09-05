@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — Onur Ozkan</title>
+
+    <link rel="stylesheet" href="static/CSS/nav.css" />
+    <link rel="stylesheet" href="static/CSS/projects.css" />
+  </head>
+  <body>
+
+    <!-- HEADER (same structure as other pages) -->
+     <div id="header">
+      <!-- Decorative header background image -->
+      <div id="headerpic"></div>
+
+      <!-- Container for navigation and logo -->
+      <div class="headercontbackg">
+        <div class="headercontent">
+
+          <!-- Burger menu icon (mobile toggle) -->
+          <div class="burgericon"></div>
+
+          <!-- Dropdown navigation menu -->
+          <div class="burgermenu">
+            <div class="linksbox">
+              <nav id="links">
+                <div id="menu-all-content">
+                  <!-- search bar -->
+                  <div id="searchbar">
+                    <div id="searchtool" onclick="toggleSearchBar()">
+                      <img src="static/search.svg" alt="Search" />
+                    </div>
+                    <form method="POST">
+                      <input
+                        id="bar"
+                        type="text"
+                        name="search"
+                        placeholder="Search"
+                        list="search-results"
+                      />
+                      <datalist id="search-results">
+                        <option value="Home"></option>
+                        <option value="About"></option>
+                        <option value="Projects"></option>
+                        <option value="Links"></option>
+                      </datalist>
+                    </form>
+                  </div>
+
+                  <!-- navigation links (relative, not /absolute) -->
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="index.html"
+                  >Home</a>
+
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="about.html"
+                  >About</a>
+
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="projects.html"
+                  >Projects</a>
+
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="links.html"
+                  >Links</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Website logo -->
+          <div class="logo">
+            <img src="static/logo.png" alt="Site logo" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+      <div class="filtered-background">
+        <section class="projects-hero">
+          <h1>Projects</h1>
+          <p>Selected work across games, machine learning, and apps.</p>
+          <div class="filters" id="filters">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="games">Games</button>
+            <button data-filter="ml">ML</button>
+            <button data-filter="apps">Apps</button>
+          </div>
+        </section>
+    
+        <section class="grid" id="projectGrid">
+          <!-- Timeline Raider -->
+          <article class="card" data-tags="games" data-sub="Unity • Mobile/PC • 2025-Present">
+            <img class="thumb" src="static/thumbs/timelineraider.png" alt="Timeline Raider screenshot" />
+            <div class="card-body">
+              <h3>Timeline Raider</h3>
+              <p>A forward-scrolling Unity shooter game through historical eras with Object Pooling, Low-Poly assets
+                 and ScriptableObjects.</p>
+              <div class="badges">
+                <span class="badge">Unity</span><span class="badge">C#</span><span class="badge">Blender</span><span class="badge">3D</span><span class="badge">Low-Poly</span><span class="badge">Object Pooling</span>
+              </div>
+              <div class="links">
+                <a class="btn" href="https://github.com/OnurOzkanApp/TimelineRaider" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn ghost details-btn" href="#timeline-raider">Details</a>
+              </div>
+
+              <!-- Hidden long description -->
+              <div class="details-content" hidden>
+                <p>Timeline Raider is a fast, forward-scrolling shooter where the world moves toward the player.
+                I built Timeline Raider in Unity (C#) with an optimized, flexible architecture that is intentionally
+                future-proof. Each system is designed to be easily extended, edited, and maintained, so new mechanics,
+                content, or UI can be added with minimal refactoring.To keep performance tight—especially on 
+                mobile—I rely on low-poly assets and an extensive Object Pooling strategy. Bullets, enemies, 
+                allies, VFX, and other gameplay objects are reused rather than reallocated, reducing memory 
+                pressure and GC spikes while keeping frame times stable.
+                </p>
+                <p>The game is structured around eras: 
+                Stone Age, Medieval, Industrial, World War II, Modern Day, Future, and Cyberpunk. Every era 
+                brings distinct environments, character outfits, weapons, enemies, and comrades. Enemy health 
+                and weapon characteristics evolve between eras to maintain challenge and a clear sense of progression.</p>
+                <p>For content creation, I model and edit low-poly assets in Blender. Character rigs are standardized 
+                with Mixamo so different models share a common skeleton, ensuring cross-compatible animation sets 
+                and smoother integration of new characters.</p>
+                <p>Weapons are driven by a ScriptableObject-based system, and the core game logic uses modular manager 
+                patterns and targeted design patterns (such as Singleton where appropriate). This approach keeps 
+                the codebase scalable and organized, making it straightforward to iterate on balance, add new weapons, 
+                or introduce era-specific rules.
+                </p>
+              </div>
+              <ul class="details-links" hidden>
+                <li><a href="https://github.com/OnurOzkanApp/TimelineRaider" target="_blank" rel="noopener">GitHub</a></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Mani! -->
+          <article class="card" data-tags="games" data-sub="Unity • Mobile • 2025">
+            <img class="thumb" src="static/thumbs/mani.png" alt="Mani! match-3 screenshot" />
+            <div class="card-body">
+              <h3>Mani! — Match-3</h3>
+              <p>Custom destruction logic, special cubes, and a white-cube mechanic with pooled VFX.</p>
+              <div class="badges">
+                <span class="badge">Unity</span><span class="badge">C#</span><span class="badge">2D</span><span class="badge">VFX</span><span class="badge">Object Pooling</span><span class="badge">JSON</span><span class="badge">CapCut</span><span class="badge">Blender</span><span class="badge">Animator</span><span class="badge">OBS Studio</span>
+              </div>
+              <div class="links">
+                <a class="btn" href="https://github.com/OnurOzkanApp/Mani" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn ghost details-btn" href="#mani">Details</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=oe-eunrKF8A" target="_blank" rel="noopener">Gameplay Trailer</a>
+              </div>
+
+              <!-- Hidden long description -->
+              <div class="details-content" hidden>
+                <p>I built a robust, scalable project architecture in Unity (C#) with a modular codebase that makes it easy
+                   to add new cube types and levels without heavy refactoring.</p>
+                <p>The game systems include multiple cube colors, unique special cubes for each color, a powerful end-game 
+                  White Cube, and obstacles (Prisms and Stones) with distinct interactions. Animations vary by cube type 
+                  and by the number of cubes destroyed, there’s a custom Level Progress Bar, and music persists smoothly 
+                  between gameplay and the main menu.</p>
+                <p>For mobile performance, I implemented a custom Object Pooling system, used Singletons sparingly and 
+                  only in manager components, and built a clean state flow for Win, Lose, and Pause screens.</p>
+                <p>Content is organized as 50 hand-crafted levels defined in external JSON, which enables fast iteration. 
+                  The game supports level lock/unlock and replay (completed levels are replayable, while locked ones 
+                  remain hidden), and the Targets UI updates dynamically based on active goals.</p>
+                <p>On the content side, I edited sprites and UI in Photopea, modeled Prism shards in Blender, and created 
+                  VFX with Unity’s Particle System and Animator (using carefully selected free Asset Store and 
+                  AI-generated assets). I produced the trailer with CapCut and OBS Studio.</p>
+              </div>
+              <ul class="details-links" hidden>
+                <li><a href="https://github.com/OnurOzkanApp/Mani" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.youtube.com/watch?v=oe-eunrKF8A" target="_blank" rel="noopener">Trailer</a></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Research Paper -->
+          <article class="card" data-tags="ml" data-sub="Toronto, ON • Apr 2023">
+            <img class="thumb" src="static/thumbs/researchpaper.png" alt="Lottery Ticket Hypothesis — research" />
+            <div class="card-body">
+              <h3>Analyzing Winning Tickets in Neural Networks</h3>
+              <p>Exploration of the Lottery Ticket Hypothesis and sparse trainable subnetworks.</p>
+              <div class="badges">
+                <span class="badge">ML</span><span class="badge">Research</span><span class="badge">Neural Networks</span>
+              </div>
+              <div class="links">
+                <a class="btn ghost details-btn" href="#researchpaper">Details</a>
+              </div>
+
+              <!-- Hidden long description -->
+              <div class="details-content" hidden>
+                Studied Frankle &amp; Carbin’s Lottery Ticket Hypothesis and reproduced pruning experiments to
+                locate sparse “winning tickets” that train to comparable accuracy when reset and retrained.
+                Ran ablations on initialization, sparsity levels, and training length to understand stability
+                and generalization behavior across architectures/datasets.
+              </div>
+            </div>
+          </article>
+
+          <!-- Car Images Generation -->
+          <article class="card" data-tags="ml" data-sub="Python • Diffusion • 2023">
+            <img class="thumb" src="static/thumbs/carimagegen.png" alt="Generating car images" />
+            <div class="card-body">
+              <h3>Car Images Generation</h3>
+              <p>Diffusion model with PyTorch/TensorFlow and BatchNorm experiments.</p>
+              <div class="badges">
+                <span class="badge">ML</span><span class="badge">PyTorch</span><span class="badge">TensorFlow</span>
+              </div>
+              <div class="links">
+                <a class="btn ghost details-btn" href="#car-image">Details</a>
+              </div>
+
+              <!-- Hidden long description (your original text) -->
+              <div class="details-content" hidden>
+                Building a Diffusion Model in Python using PyTorch and TensorFlow was a journey into the world of
+                computer vision. Leveraging Batch Normalization for improved performance, I embarked on generating
+                realistic car images from large datasets. This project not only showcased my proficiency in cutting-edge
+                technologies but also highlighted my dedication to creating impactful and visually compelling solutions.
+              </div>
+            </div>
+          </article>
+          
+          <!-- Anime GAN -->
+          <article class="card" data-tags="ml" data-sub="WGAN/WGAN-GP • 2023">
+            <img class="thumb" src="static/thumbs/animegan.png" alt="Anime GAN sample faces" />
+            <div class="card-body">
+              <h3>Anime Face Generation</h3>
+              <p>WGAN &amp; WGAN-GP on large anime datasets; exploration in creative ML.</p>
+              <div class="badges">
+                <span class="badge">ML</span><span class="badge">Python</span><span class="badge">PyTorch</span><span class="badge">GANs</span>
+              </div>
+              <div class="links">
+                <a class="btn ghost details-btn" href="#anime-gan">Details</a>
+              </div>
+
+              <!-- Hidden long description -->
+              <div class="details-content" hidden>
+                Venturing into Generative Adversarial Networks (GANs), I explored the creative side of Machine Learning. 
+                The project involved utilizing WGAN and WGAN with Gradient Penalty to generate anime faces from large datasets. 
+                This foray into the world of GANs reflects my passion for exploring the intersection of technology and creativity, 
+                resulting in visually stunning and novel outputs.
+              </div>
+            </div>
+          </article>
+
+          <!-- Speech Recognition (Conformer) -->
+          <article class="card" data-tags="ml" data-sub="Python • Speech Recognition • 2023">
+            <img class="thumb" src="static/thumbs/asr.png" alt="ASR waveform visualization" />
+            <div class="card-body">
+              <h3>Speech Recognition (Conformer)</h3>
+              <p>Conformer-based Speech Recognition models, comparing architectures and runtime efficiency.</p>
+              <div class="badges">
+                <span class="badge">ML</span><span class="badge">Python</span><span class="badge">Conformer</span>
+              </div>
+              <div class="links">
+                <a class="btn ghost details-btn" href="#asr">Details</a>
+              </div>
+
+              <!-- Hidden long description -->
+              <div class="details-content" hidden>
+                Developing a speech recognition model in Python on a large dataset was a leap into the realm of natural 
+                language processing. Incorporating a conformer to analyze performance differences, I aimed to enhance 
+                the accuracy and efficiency of speech recognition systems. This project underscores my commitment to 
+                addressing real-world challenges through innovative Machine Learning solutions.
+              </div>
+            </div>
+          </article>
+
+          <!-- Cervical Cancer Prediction -->
+          <article class="card" data-tags="ml" data-sub="R • Classification • 2023">
+            <img class="thumb" src="static/thumbs/cervical-ml.png" alt="Data visualization" />
+            <div class="card-body">
+              <h3>Cervical Cancer Prediction</h3>
+              <p>Risk prediction and feature analysis on patient data; model evaluation and insights.</p>
+              <div class="badges">
+                <span class="badge">ML</span><span class="badge">R</span><span class="badge">Classification</span>
+              </div>
+              <div class="links">
+                <a class="btn ghost details-btn" href="#cervical">Details</a>
+              </div>
+
+              <!-- Hidden long description -->
+              <div class="details-content" hidden>
+                Built a binary relapse classifier (relapse vs. no relapse). Cleaned and encoded patient records data,
+                evaluated logistic regression, random forest, and gradient boosting with cross-validation, and
+                analyzed key variables affecting risk. Reported ROC-AUC, precision/recall, and calibration.
+              </div>
+            </div>
+          </article>
+
+          <!-- CliniQueue -->
+          <article class="card" data-tags="apps" data-sub="Android App • Java • 2021">
+            <img class="thumb" src="static/thumbs/cliniqueue.png" alt="CliniQueue app screenshot" />
+            <div class="card-body">
+              <h3>CliniQueue App</h3>
+              <p>Android app to manage patient appointments and clinic workflows.</p>
+              <div class="badges">
+                <span class="badge">Android App</span><span class="badge">Java</span><span class="badge">SQLite</span><span class="badge">Scrum Master</span>
+              </div>
+              <div class="links">
+                <a class="btn" href="https://github.com/OnurOzkanApp/CliniQueue-app" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn ghost details-btn" href="#cliniqueue">Details</a>
+              </div>
+
+              <!-- Hidden long description -->
+              <div class="details-content" hidden>
+                In my capacity as a Scrum Master for the Android app "CliniQueue App," designed for a clinic setting, 
+                I led a cross-functional team in the agile development process. The app featured distinct logins for 
+                both patients and doctors, fostering a comprehensive healthcare experience. Patients were empowered to 
+                explore and choose doctors, search for specific practitioners, and seamlessly book appointments. On the 
+                doctor's side, the app provided a centralized platform for managing schedules and accessing patient information. 
+                This multifaceted approach not only highlighted the technical complexities of managing dual interfaces but also 
+                demonstrated our commitment to creating a solution that catered to the diverse needs of both patients and 
+                healthcare professionals. The positive feedback we received, coupled with achieving a perfect score of 100, 
+                validated the success of our collaborative efforts in delivering a user-friendly and comprehensive healthcare 
+                management tool. 
+              </div>
+              <ul class="details-links" hidden>
+                <li><a href="https://github.com/OnurOzkanApp/ClinicQueue" target="_blank" rel="noopener">GitHub</a></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Rebuilding CSCB63H Course Page -->
+          <article class="card" data-tags="apps" data-sub="HTML • CSS • JavaScript • 2021">
+            <img class="thumb" src="static/thumbs/redesign.png" alt="Rebuilding CSCB63H Course Page screenshot" />
+            <div class="card-body">
+              <h3>Rebuilding CSCB63H Course Page</h3>
+              <p>Redesigned the CSCB63 course page using Flask (Python), HTML/CSS/JS, and SQLite, implementing role-based authentication (student/instructor) and instructor grade management while modernizing the UI for accessibility and ease of use.</p>
+              <div class="badges">
+                <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JavaScript</span><span class="badge">SQLite</span><span class="badge">Python Flask</span>
+              </div>
+              <div class="links">
+                <a class="btn" href="https://github.com/OnurOzkanApp/Redesigning-Course-Page" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn ghost details-btn" href="#rebuildingcscb63h">Details</a>
+              </div>
+
+              <!-- Hidden long description -->
+              <div class="details-content" hidden>
+                <p>
+                I redesigned the CSCB63 course page using Python Flask, HTML, CSS, JavaScript, and SQLite. The goal was to modernize 
+                the site’s architecture and presentation while keeping the stack lightweight and easy to maintain. I implemented separate 
+                login flows and permissions for students and instructors. Instructors gained the ability to add and edit grades, while 
+                students could securely view their own information and grades.</p>
+                <p>
+                The user interface was refreshed to be more modern, accessible, and easy to navigate—improving overall usability and 
+                meeting basic accessibility expectations for contrast, structure, and keyboard friendliness.</p>
+              </div>
+              <ul class="details-links" hidden>
+                <li><a href="https://github.com/OnurOzkanApp/Redesigning-Course-Page" target="_blank" rel="noopener">GitHub</a></li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Buxfer in C -->
+          <article class="card" data-tags="apps" data-sub="C • Unix • 2018">
+            <img class="thumb" src="static/thumbs/buxfer.png" alt="Buxfer in C screenshot" />
+            <div class="card-body">
+              <h3>Buxfer</h3>
+              <p>C/Unix implementation of a Buxfer-style shared-expenses tracker using linked lists—multi-file design with 
+                Makefile, careful memory management and robust error handling. Grade: A+ (97%).</p>
+              <div class="badges">
+                <span class="badge">C</span><span class="badge">Unix</span>
+              </div>
+              <div class="links">
+                <a class="btn ghost details-btn" href="#buxfer">Details</a>
+              </div>
+
+              <!-- Hidden long description -->
+              <div class="details-content" hidden>
+                  During the Summer of 2018, I was taking a second-year computer science course named Software Tools and 
+                  Systems Programming which focuses on Unix and C programming. And for our second assignment, I was asked 
+                  to build a program that uses a linked list structure and the program would be a basic version of a real 
+                  program called "Buxfer." Buxfer is a business-related program that tracks the shared expenses of different 
+                  groups. There are two possible types of groups, one is a business group and the other is a personal group. 
+                  In this assignment, we had to work with multiple files. These files include a file with the starter code, 
+                  a file that contains structs, a file with the main function and a makefile that compiles all files. Since 
+                  it is developed in C, we were expected to manage the memory efficiently by using functions such as malloc 
+                  and we were expected to handle all the errors to make sure that the program does not crash. As a result, 
+                  I've completed all the necessary methods with error handling and comments that explain my code so that 
+                  in a real-world situation my code would be understandable if anyone needs to use it in the future. 
+                  As a result, I received an A+ with a grade of 97. This project allowed me to understand how to apply my 
+                  knowledge from my previous experiences to a new situation. As I needed to use my knowledge of linked 
+                  lists from previous classes to complete this project. It also helped me to put the new information that 
+                  I had learned about C together to build a successful C program.
+              </div>
+              <ul class="details-links" hidden>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Planet Math -->
+          <article class="card" data-tags="apps" data-sub="Java • 2017">
+            <img class="thumb" src="static/thumbs/planetmath.png" alt="Planet Math screenshot" />
+            <div class="card-body">
+              <h3>Planet Math</h3>
+              <p>Collaborative Java app that makes calculus & geometry approachable—20 topic pages (derivatives, integrals, trig), 
+                planned workflow, and a clean, student-focused UI.</p>
+              <div class="badges">
+                <span class="badge">Java</span>
+              </div>
+              <div class="links">
+                <a class="btn ghost details-btn" href="#planetmath">Details</a>
+              </div>
+
+              <!-- Hidden long description -->
+              <div class="details-content" hidden>
+                <p>
+                When I was in 12th grade, I wanted to work on a mathematics project on Java that could help other students 
+                with calculus. Even though I had a lot of experience working as a group on class projects, I also wanted to 
+                develop my teamwork skill by working with someone on a coding project. Since my objective was to learn more 
+                about the work environment. And developing projects as a team. So, I decided to ask one of my classmates, 
+                since she and I helped each other out with our separate final projects for a Java summer program that we 
+                participated in. Then we decided to create an application called "Planet Math" that would have all the 
+                information about different subjects in calculus such as integration, derivative and trigonometry. But we 
+                also wanted to make sure that the program should not be boring and therefore, it should look more appealing to the students.</p>
+                <p>
+                Firstly, we wanted to follow a proper development cycle. Thus, we wanted to create a plan before coding anything. 
+                So, we worked together to come up with a design and then what subjects to cover. We discussed our plans to our 
+                mathematics teacher to get feedback. In the end, our program had a total of 20 subjects. 5 subjects in Math and 
+                15 subjects in the Geometry section. Then, we started to create the pages for every subject by working together. 
+                We also decided that we should work on separate topics within subjects then put them together. So, we started 
+                to build the first version of our application. While we started coding, we went to our computer science teacher 
+                and told her about our joint project. She loved the idea and she agreed to give some feedback. With her suggestions, 
+                we changed the design a little before the first version was completed.</p>
+                <p>After the initial build, we worked with our teacher during the breaks and after school hours to optimize the project. 
+                Later on, she asked us about the idea of putting our project into lab computers or our school's online system 
+                called "Moodle". She also wanted us to continue to expand the application and add new things to version 1.2 of 
+                the Planet Math. During this project, my partner and I, we both learned so much about the importance of teamwork, 
+                communication with your partner, planning  and getting feedback about the difficulties that you might encounter.</p>
+              </div>
+              <ul class="details-links" hidden>
+              </ul>
+            </div>
+          </article>
+        </section>
+      </div>
+    </div>
+
+    <!-- === FOOTER SECTION (static) === -->
+    <div id="footer">
+      <div id="footercontent">
+        <div class="logo">
+          <img src="static/logotext.png" alt="Site logo text" />
+        </div>
+        <div id="contactinfo">
+          <p>Contact Info:</p>
+          <a href="mailto:onurozkanapp@gmail.com">onurozkanapp@gmail.com</a>
+        </div>
+        <div id="social-media-sec">
+          <a href="https://www.linkedin.com/in/onur-ozkan-286812149/" target="_blank" rel="noopener noreferrer">
+            <img class="social-media-icons" src="static/linkedin.png" alt="LinkedIn" />
+          </a>
+          <a href="https://www.github.com/OnurOzkanApp" target="_blank" rel="noopener noreferrer">
+            <img id="github" class="social-media-icons" src="static/github.png" alt="GitHub" />
+          </a>
+          <a href="https://twitter.com/OnurOzkan98" target="_blank" rel="noopener noreferrer">
+            <img id="xlogo" class="social-media-icons" src="static/XAllBlack.png" alt="X" />
+          </a>
+          <a href="https://www.instagram.com/onurozkan98/" target="_blank" rel="noopener noreferrer">
+            <img id="instagram" class="social-media-icons" src="static/instagram-icon.png" alt="Instagram" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div id="projectModal" class="proj-modal" hidden>
+      <div class="proj-modal__backdrop" data-close></div>
+
+      <div class="proj-modal__dialog" role="dialog" aria-modal="true"
+          aria-labelledby="proj-modal-title" aria-describedby="proj-modal-desc">
+        <button class="proj-modal__close" type="button" aria-label="Close" data-close>×</button>
+
+        <header class="proj-modal__header">
+          <img class="proj-modal__thumb" alt="" />
+          <div class="proj-modal__titles">
+            <h2 id="proj-modal-title"></h2>
+            <p id="proj-modal-sub" class="proj-modal__subtitle"></p>
+          </div>
+        </header>
+
+        <div id="proj-modal-badges" class="proj-modal__badges"></div>
+        <div id="proj-modal-desc" class="proj-modal__body"></div>
+        <div id="proj-modal-links" class="proj-modal__links"></div>
+      </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="static/JS/nav.js"></script>
+    <script src="static/JS/projects.js"></script>
+  </body>
+</html>

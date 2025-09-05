@@ -1,0 +1,287 @@
+/* ------ Animated Black↔Blue background like Links ------ */
+.filtered-background {
+  width: 100vw;
+  min-height: 100%;
+  position: relative;
+  top: 0;
+
+  /* three-stop gradient so the sweep goes black→blue→black */
+  background-image: linear-gradient(315deg, #000000 0%, #0f218b 50%, #000000 100%);
+  background-size: 300% 300%;
+  animation: projects-bg 18s infinite alternate ease-in-out;
+}
+
+/* slide the gradient across, like Links does */
+@keyframes projects-bg {
+  0%   { background-position: left top; }
+  100% { background-position: right bottom; }
+}
+
+/* Hero */
+.projects-hero {
+  padding: 4rem 1rem 2rem;
+  color: #eaeaea;
+  text-align: center;
+}
+.projects-hero h1 { margin: 0 0 0.5rem; }
+.projects-hero p  { margin: 0 0 1rem; color: #cfe0ff; }
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.filters button {
+  border: 1px solid #2a3346;
+  background: #0f1524;
+  color: #cfe0ff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.filters button.active {
+  background: #cfe0ff;
+  color: #0b0f17;
+  font-weight: 700;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 0 1rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Card */
+.card {
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid #243047;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.thumb {
+  aspect-ratio: 16 / 9;
+  background: #0d1322;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-body { padding: 14px; }
+
+.card h3 {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.card p {
+  margin: 0 0 0.6rem;
+  color: #b8c4e3;
+  font-size: 0.95rem;
+}
+
+/* Badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.badge {
+  font-size: 0.75rem;
+  border: 1px solid #294060;
+  border-radius: 8px;
+  padding: 0.15rem 0.45rem;
+  color: #cfe0ff;
+  background: #101b2c;
+}
+
+/* Links */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.btn {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #2a3346;
+  background: #101826;
+  color: #eaf2ff;
+  text-decoration: none;
+}
+
+.btn.ghost { background: transparent; }
+
+/* Responsive tweak */
+@media (max-width: 700px) {
+  .projects-hero { padding: 3rem 1rem 1rem; }
+}
+
+/* ------ Project Details Modal ------ */
+.proj-modal[hidden] { display: none; }
+
+.proj-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6vh 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+}
+
+.proj-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.proj-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(2px);
+}
+
+.proj-modal__dialog {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: min(65rem, 100%);
+  max-height: 84vh;
+  overflow: auto;
+  margin: auto;
+
+  background: #0f1524;
+  color: #eaf2ff;
+  border: 1px solid #2a3346;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.45);
+
+  transform: translateY(10px);
+  transition: transform .18s ease;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.proj-modal__body p { margin: 0 0 0.9rem; }
+
+.proj-modal__body p:last-child { margin-bottom: 0; }
+
+.proj-modal.open .proj-modal__dialog {
+  transform: translateY(0);
+}
+
+/* Close (×) */
+.proj-modal__close {
+  position: sticky; /* sticks while scrolling long content */
+  top: 0;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px; height: 32px;
+  font-size: 20px; line-height: 1;
+  background: #101826;
+  color: #cfe0ff;
+  border: 1px solid #2a3346;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Header */
+.proj-modal__header {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: 14px;
+  align-items: center;
+  margin: .5rem 0 1rem;
+}
+
+.proj-modal__thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #243047;
+  background: #0d1322;
+}
+
+.proj-modal__titles h2 {
+  margin: 0 0 .25rem 0;
+}
+
+.proj-modal__subtitle {
+  margin: 0;
+  color: #9db3dd;
+  font-size: .95rem;
+}
+
+/* Badges in modal (re-use card vibe) */
+.proj-modal__badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0 0 1rem 0;
+}
+.proj-modal__badges .badge {
+  font-size: .75rem;
+  border: 1px solid #294060;
+  border-radius: 8px;
+  padding: .15rem .45rem;
+  color: #cfe0ff;
+  background: #101b2c;
+}
+
+/* Body text */
+.proj-modal__body {
+  line-height: 1.6;
+  color: #d6e1ff;
+}
+
+/* Links row */
+.proj-modal__links {
+  display: flex;
+  align-self: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.proj-modal__links a {
+  text-decoration: none;
+  border: 1px solid #2a3346;
+  border-radius: 10px;
+  padding: .5rem .7rem;
+  color: #eaf2ff;
+  background: #101826;
+}
+
+/* Small screens: stack header */
+@media (max-width: 520px) {
+  .proj-modal__header {
+    grid-template-columns: 1fr;
+  }
+  .proj-modal__thumb {
+    width: 100%;
+  }
+}

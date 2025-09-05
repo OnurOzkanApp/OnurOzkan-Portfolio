@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Responsive layout for all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Onur Ozkan's Page</title>
+
+    <link rel="stylesheet" href="static/CSS/nav.css" />
+    <link rel="stylesheet" href="static/CSS/links.css" />
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <div id="header">
+      <div id="headerpic"></div>
+      <div class="headercontbackg">
+        <div class="headercontent">
+          <div class="burgericon"></div>
+
+          <div class="burgermenu">
+            <div class="linksbox">
+              <nav id="links" aria-label="Primary">
+                <div id="menu-all-content">
+                  <!-- search bar -->
+                  <div id="searchbar">
+                    <div id="searchtool" onclick="toggleSearchBar()">
+                      <img src="static/search.svg" alt="Search" />
+                    </div>
+                    <form method="POST">
+                      <input id="bar" type="text" name="search" placeholder="Search" list="search-results" />
+                      <datalist id="search-results">
+                        <option value="Home"></option>
+                        <option value="About"></option>
+                        <option value="Projects"></option>
+                        <option value="Links"></option>
+                      </datalist>
+                    </form>
+                  </div>
+
+                  <!-- nav links -->
+                  <!-- navigation links (relative, not /absolute) -->
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="index.html"
+                  >Home</a>
+
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="about.html"
+                  >About</a>
+
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="projects.html"
+                  >Projects</a>
+
+                  <a
+                    onmouseover="hoverChangeBackground(this)"
+                    onclick="clickLink(this)"
+                    onmouseout="changeBackLink(this)"
+                    href="links.html"
+                  >Links</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+
+          <div class="logo">
+            <img src="static/logo.png" alt="Site logo" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CONTENT ===== -->
+    <div class="content">
+      <h1>Contact Me</h1>
+      <p>You can reach me directly at:</p>
+      <p><a href="mailto:onurozkanapp@gmail.com">onurozkanapp@gmail.com</a></p>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/onur-ozkan-286812149/" target="_blank" rel="noopener noreferrer">
+          <img class="social-media-icons" src="static/linkedInAllBlack.png" alt="LinkedIn" /> LinkedIn
+        </a>
+        <a href="https://github.com/OnurOzkanApp" target="_blank" rel="noopener noreferrer">
+          <img class="social-media-icons" src="static/githubAllBlack.png" alt="GitHub" /> GitHub
+        </a>
+        <a href="https://twitter.com/OnurOzkan98" target="_blank" rel="noopener noreferrer">
+          <img id="xlogo" class="social-media-icons" src="static/XAllBlack.png" alt="X" /> X
+        </a>
+        <a href="https://www.instagram.com/onurozkan98/" target="_blank" rel="noopener noreferrer">
+          <img class="social-media-icons" src="static/instagram-icon.png" alt="Instagram" /> Instagram
+        </a>
+      </div>
+    </div>
+
+    <!-- === FOOTER === -->
+    <div id="footer">
+      <div id="footercontent">
+        <div class="logo">
+          <img src="static/logotext.png" alt="Site logo text" />
+        </div>
+        <div id="contactinfo">
+          <p>Contact Info:</p>
+          <a href="mailto:onurozkanapp@gmail.com">onurozkanapp@gmail.com</a>
+        </div>
+        <div id="social-media-sec">
+          <a href="https://www.linkedin.com/in/onur-ozkan-286812149/" target="_blank" rel="noopener noreferrer">
+            <img class="social-media-icons" src="static/linkedin.png" alt="LinkedIn" />
+          </a>
+          <a href="https://www.github.com/OnurOzkanApp" target="_blank" rel="noopener noreferrer">
+            <img id="github" class="social-media-icons" src="static/github.png" alt="GitHub" />
+          </a>
+          <a href="https://twitter.com/OnurOzkan98" target="_blank" rel="noopener noreferrer">
+            <img id="xlogo" class="social-media-icons" src="static/XAllBlack.png" alt="X" />
+          </a>
+          <a href="https://www.instagram.com/onurozkan98/" target="_blank" rel="noopener noreferrer">
+            <img id="instagram" class="social-media-icons" src="static/instagram-icon.png" alt="Instagram" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="static/JS/nav.js"></script>
+    <script src="static/JS/links.js"></script>
+  </body>
+</html>

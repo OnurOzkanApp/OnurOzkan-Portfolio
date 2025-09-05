@@ -1,0 +1,129 @@
+/* === Base layout for sections === */
+.sections {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff6f9;
+}
+
+/* Hide 'top' button used by JS */
+.prev { width: 0; visibility: hidden; opacity: 0; }
+
+/* === Background (kept from your design) === */
+.filtered-background {
+  display: grid;
+  grid-template-rows: 130vh 30vh auto; /* hero = full viewport, others auto */
+  width: 100vw;
+  min-height: 100%;
+  background-color: #e84393;
+  background-image: linear-gradient(315deg, #e84393 0%, #000000 74%);
+}
+
+/* === Hero === */
+.section-1-content {
+  height: 90vh;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-2-content {
+  grid-row: 2;
+  padding: 4rem 2rem;
+}
+
+.section-3-content {
+  grid-row: 3;
+  padding: 4rem 2rem;
+}
+
+h1 {
+  letter-spacing: 0.05em;
+  text-align: center;
+  opacity: 1; /* visible by default */
+}
+
+@keyframes arrow-animation { 0%,100%{top:0} 50%{top:1em} }
+.next {
+  position: relative;
+  margin-top: 1rem;
+  background: transparent;
+  border: none;
+  animation: 5s arrow-animation infinite ease;
+}
+#downarrow { width: 1.6em; opacity: 0.9; }
+
+/* === Shared content container === */
+.about-grid,
+.details {
+  width: min(1000px, 92vw);
+  margin: 10rem 0 2rem;
+}
+
+/* === Intro block (image + text) === */
+.about-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* wider column for photo */
+  gap: 1rem;
+  align-items: initial; /* align start of the text with photo */
+}
+
+#profpicture {
+  width: 294px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.intro p { margin: 0 0 1rem; line-height: 1.8; }
+.lead { font-weight: 600; }
+
+/* === Details block (Education, Skills, Experience, Goals) === */
+.section-3-content h2 {
+  margin: 2.5rem 0 0.75rem;
+  font-size: 1.35rem;
+  letter-spacing: .02em;
+}
+
+.section-3-content p,
+.section-3-content li { line-height: 1.8; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem 2rem;
+}
+.two-col ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+/* Timeline style for experience */
+.timeline { margin-top: 0.5rem; }
+.timeline .item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+.timeline .item:last-child { border-bottom: none; }
+.timeline h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+.timeline .meta { display: block; opacity: .8; font-size: .95rem; margin-bottom: .35rem; }
+.timeline p { margin: 0; }
+
+/* Goals list */
+.goals { margin: 0.5rem 0 2rem; padding-left: 1.2rem; }
+
+/* === Responsive === */
+@media (max-width: 700px) {
+  .about-grid { grid-template-columns: 1fr; }
+  #profpicture { width: 294px; justify-self: center; }
+}
+
+@media (min-width: 900px) {
+  #profpicture { width: 294px; }
+  .two-col { grid-template-columns: 1fr 1fr; }
+  .section-3-content h2 { font-size: 1.5rem; }
+}
+
+@media (min-width: 1400px) {
+  .about-grid, .details { width: min(1100px, 80vw); }
+}
